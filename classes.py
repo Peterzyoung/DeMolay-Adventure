@@ -6,8 +6,8 @@ def init():
 
 def load_assets():
 	global tiles
-	for n in os.listdir(os.getcwd()):
-		pass
+	for n in os.listdir(os.getcwd()+"\tiles"):
+		tiles[n[:-4]] = pygame.image.load(os.path.join(os.getcwd()+"\marks",str(n))).convert()
 
 class Tile(object):
 	def __init__(self):
@@ -24,22 +24,22 @@ class Map(object):
 		file = open("maps.txt","r")
 		data = ""
 		for line in file:
-				if line == name:
-						data = file.readline()
-						break
+			if line == name:
+				data = file.readline()
+				break
 		if data == "":
 			return
 		section = 0
 		chunk = ""
 		for character in data:
-				if character == "&":
-					section += 1
-				elif character == "$":
-					if section == 1:
-						self.tilenames.append(chunk)
-						chunk = ""
-				else:
-					chunk += character
+			if character == "&":
+				section += 1
+			elif character == "$":
+				if section == 1:
+					self.tilenames.append(chunk)
+					chunk = ""
+			else:
+				chunk += character
 
 def Main():
 
