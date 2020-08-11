@@ -1,12 +1,24 @@
-import pygame
+import pygame, os
+
+tiles = {}
+def init():
+	os.chdir(os.getcwd()+"\Assets")
+
+def load_assets():
+	global tiles
+	for n in os.listdir(os.getcwd()):
+		pass
 
 class Tile(object):
 	def __init__(self):
-			self.img = 0
+		self.img = None
+		self.solid = False
+		self.portal = None
+		self.effects = []
 
 class Map(object):
 	def __init__(self, width, height):
-		self.grid = [[0]*width]*height
+		self.grid = [[Tile()]]
 		self.tilenames = []
 	def load(self, name):
 		file = open("maps.txt","r")
@@ -28,3 +40,7 @@ class Map(object):
 						chunk = ""
 				else:
 					chunk += character
+
+def Main():
+
+if __name__ =="" __main__": main()
