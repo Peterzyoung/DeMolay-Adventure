@@ -1,0 +1,7 @@
+Map Data
+
+section 1: tilenames
+section 2: tile map
+section 3: solids
+section 4: portals
+section 5: effects
